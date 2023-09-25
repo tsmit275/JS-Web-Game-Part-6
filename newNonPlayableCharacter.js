@@ -1,3 +1,4 @@
+debugger
 function newNonPlayableCharacter(x, y) {
     let element = newImage('assets/red-character/static.gif')
     element.style.zIndex = 1;
@@ -23,24 +24,49 @@ function newNonPlayableCharacter(x, y) {
 
     setInterval(moveCharacter, 1)
 
-    function walkEast() {
+    function walkEast(time) {
         direction = 'east'
         element.src = `./assets/red-character/east.gif`
+        return new Promise(function(resolve, reject){
+            setTimeout(() =>{
+                stop()
+                resolve()
+            },time)
+        })
     }
 
-    function walkNorth() {
+    function walkNorth(time) {
         direction = 'north'
         element.src = `./assets/red-character/north.gif`
+        return new Promise(function(resolve, reject){
+            setTimeout(() =>{
+                stop()
+                resolve()
+            },time)
+        })
+    }
     }
 
-    function walkWest() {
+    function walkWest(time) {
         direction = 'west'
         element.src = `./assets/red-character/west.gif`
+        return new Promise(function(resolve, reject){
+            setTimeout(() =>{
+                stop()
+                resolve()
+            },time)
+        })
     }
 
-    function walkSouth() {
+    function walkSouth(time) {
         direction = 'south'
         element.src = `./assets/red-character/south.gif`
+        return new Promise(function(resolve, reject){
+            setTimeout(() =>{
+                stop()
+                resolve()
+            },time)
+        })
     }
 
     function stop() {
@@ -48,12 +74,4 @@ function newNonPlayableCharacter(x, y) {
         element.src = `./assets/red-character/static.gif`
     }
 
-    return {
-        element: element,
-        walkWest: walkWest,
-        walkNorth: walkNorth,
-        walkEast: walkEast,
-        walkSouth: walkSouth,
-        stop: stop
-    }
-}
+    
